@@ -13,7 +13,7 @@ const register = async(req, res, next) => {
         return res.json(user);
     } catch(err) {
         if(err && err.name === "ValidationError"){
-            return res.json({
+            return res.status(400).json({
                 error: 1,
                 message: err.message,
                 fields: err.errors
@@ -45,7 +45,7 @@ const login = async (req, res, next) => {
     passport.authenticate("local", async function(err, user) {
         if(err) return next(err);
 
-        if(!user) return res.json({error: 1, message: "Email or Password incorect"});
+        if(!user) return res.status(400).json({error: 1, message: "Email or Password incorect"});
 
         let signed = jwt.sign(user, config.secretkey);
 

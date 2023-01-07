@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(decodeToken());
 
 
-app.use("/auth", cartRoute)
+app.use("/api", cartRoute)
 app.use("/auth", authRoute)
 app.use("/api", productRoute)
 app.use("/api", categoryRoute)
@@ -47,7 +47,7 @@ app.use("/", function(req, res) {
 })
 
 // running
-app.listen(process.env.PORT || 8000, () => console.log("Server: http://localhost:8000"))
+// app.listen(process.env.PORT || 8000, () => console.log("Server: http://localhost:8000"))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

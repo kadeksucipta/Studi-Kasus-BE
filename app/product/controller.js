@@ -198,7 +198,8 @@ const index = async (req, res, next) => {
 
         if(category.length) {
             let categoryResult = await Category.findOne({name: {$regex: `${category}`}, $options: "i"});
-
+            console.log(categoryResult)
+            
             if(categoryResult) {
                 criteria = {...criteria, category: categoryResult._id}
             }

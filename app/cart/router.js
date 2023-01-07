@@ -9,9 +9,16 @@ router.put(
 );
 
 router.get(
-    "carts",
+    "/carts",
     police_check("read", "Cart"),
     cartController.index
 );
+
+// router.delete(
+//     "/carts",
+//     police_check("read", "Cart"),
+//     cartController.destroy
+// );
+
 
 module.exports = router;

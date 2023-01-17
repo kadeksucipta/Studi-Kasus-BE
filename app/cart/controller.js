@@ -6,8 +6,11 @@ const update = async(req, res, next) => {
         const {items} = req.body;
         console.log(req.body)
         const productIds = items.map(item => item._id);
+        console.log(productIds);
         const products = await Product.find({_id: {$in: productIds}});
+        console.log(products);
         let cartItems = items.map(item => {
+            console.log(item);
             let relatedProduct = products.find(product => product._id.toString() === item._id);
             return {
                 product: relatedProduct._id,

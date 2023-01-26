@@ -3,13 +3,13 @@ const orderController = require("./controller")
 const { police_check } = require("../../middlewares")
 
 router.post(
-    "./orders", 
+    "/orders", 
     police_check("create", "Order"),
     orderController.store
 );
 
 router.get(
-    "./orders", 
+    "/orders", 
     police_check("view", "Order"),
     orderController.index
 );

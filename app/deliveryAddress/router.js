@@ -9,8 +9,8 @@ router.post(
     deliveryAddressController.store
 );
 
-router.put("/delivery-addresses", deliveryAddressController.update);
-router.delete("/delivery-addresses", deliveryAddressController.destroy);
+router.put("/delivery-addresses/:id", deliveryAddressController.update);
+router.delete("/delivery-addresses/:id", deliveryAddressController.destroy);
 
 router.get(
     "/delivery-addresses",
